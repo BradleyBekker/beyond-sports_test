@@ -9,7 +9,7 @@ public class BallData
     //clickerFlag
     public BallData(float x ,float y,float z,float speed)
     {
-        posistion = new Vector3(x, y, z);
+        posistion = new Vector3(x, z, y);
         ballSpeed = speed;
     }
     
