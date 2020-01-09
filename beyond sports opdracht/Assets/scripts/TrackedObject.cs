@@ -5,8 +5,8 @@ using UnityEngine;
 public class TrackedObject 
 {
    public int team { get; }
-    int trackingID;
-    int playerNumber;
+    public int trackingID { get; }
+    public int playerNumber { get; }
     public Vector3 pos { get; }
     float speed;
     public TrackedObject(int Team,int ID,int PlayerNum, float x,float y,float Speed)

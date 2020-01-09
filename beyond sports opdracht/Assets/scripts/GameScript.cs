@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameScript : DataReader
@@ -36,6 +37,11 @@ public class GameScript : DataReader
             
         }
         players = GameObject.FindGameObjectsWithTag("Player");
+        for (int i = 0; i < players.Length; i++)
+        {
+           TextMeshPro text = players[i].transform.GetChild(0).GetComponent<TextMeshPro>();
+            text.text = "team" + framelist[0].trackedObject[i].team + "   " +"no." + framelist[0].trackedObject[i].playerNumber;
+        }
     }
     void Update()
     {
