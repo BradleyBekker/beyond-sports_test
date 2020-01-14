@@ -8,50 +8,68 @@ public class GameScript : DataReader
     [SerializeField]
     GameObject ball;
     [SerializeField]
-    GameObject[] players;
-    [SerializeField]
     GameObject[] team;
-
+    [SerializeField]
+    Dictionary<int, GameObject> _players = new Dictionary<int, GameObject>();
     int counter;
     private void Start()
     {
-        for (int i = 0; i < 29; i++)
+        GameObject p;
+        for (int i = 0; i < framelist[0].trackedObject.Count; i++)
         {
             switch (framelist[0].trackedObject[i].team)
             {
+                 
                 case 0:
-                    Instantiate(team[0]);
+                     p = Instantiate(team[0]);
+                    _players.Add(framelist[0].trackedObject[i].trackingID,p);
                     break;
                 case 1:
-                    Instantiate(team[1]);
+                     p = Instantiate(team[1]);
+                    _players.Add(framelist[0].trackedObject[i].trackingID, p);
                     break;
                 case 3:
-                    Instantiate(team[2]);
+                     p = Instantiate(team[2]);
+                    _players.Add(framelist[0].trackedObject[i].trackingID, p);
                     break;
                 case 4:
-                    Instantiate(team[3]);
+                     p = Instantiate(team[3]);
+                    _players.Add(framelist[0].trackedObject[i].trackingID, p);
+                    break;
+                case -1:
+                    p = Instantiate(team[4]);
+                    _players.Add(framelist[0].trackedObject[i].trackingID, p);
                     break;
                 default:
+                    print("unacounted team" + framelist[0].trackedObject[i].team);
                     break;
             }
+           
             
         }
-        players = GameObject.FindGameObjectsWithTag("Player");
-        for (int i = 0; i < players.Length; i++)
-        {
-           TextMeshPro text = players[i].transform.GetChild(0).GetComponent<TextMeshPro>();
-            text.text = "team" + framelist[0].trackedObject[i].team + "   " +"no." + framelist[0].trackedObject[i].playerNumber;
-        }
+
+        
+         for (int i = 0; i < _players.Count; i++)
+         {
+            TextMeshPro text = _players[framelist[counter].trackedObject[i].trackingID].transform.GetChild(0).GetComponent<TextMeshPro>();
+             text.text = "team" + framelist[0].trackedObject[i].team + "   " +"no." + framelist[0].trackedObject[i].playerNumber;
+         }
+         
+        counter = 0;
     }
+   
     void Update()
     {
         if (counter< framelist.Count)
         {
             ball.transform.position = framelist[counter].ballData.posistion;
-            for (int j = 0; j < players.Length; j++)
+            for (int j = 0; j < _players.Count; j++)
             {
-                players[j].transform.position = framelist[counter].trackedObject[j].pos;
+                
+                _players[framelist[counter].trackedObject[j].trackingID].transform.position = framelist[counter].trackedObject[j].pos;
+                
             }
+            
             counter++;
         }
         else

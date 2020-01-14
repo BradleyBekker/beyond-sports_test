@@ -341,41 +341,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 1817448137}
-  players:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   team:
   - {fileID: 4797331182953543450, guid: 06f8cb56376cd5d4cb43e5ee5c1b23a9, type: 3}
   - {fileID: 3309178831417396559, guid: 8666d8619aa35da4ca218b60bc3b0bb1, type: 3}
   - {fileID: 4375299084820294032, guid: dbc4beda8b709de4594c2f2bbef306df, type: 3}
   - {fileID: 3830430007154089803, guid: a3410804c73b9fd47ac57a6c188ae568, type: 3}
+  - {fileID: 4310579112434912689, guid: 4198ae15f05e03444b8a89b6f04cc769, type: 3}
 --- !u!1 &1148431765
 GameObject:
   m_ObjectHideFlags: 0
