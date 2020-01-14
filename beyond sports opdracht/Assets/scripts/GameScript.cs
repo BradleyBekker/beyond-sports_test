@@ -17,6 +17,7 @@ public class GameScript : DataReader
         GameObject p;
         for (int i = 0; i < framelist[0].trackedObject.Count; i++)
         {
+            //instantiate a player to track and adds them to the dictionary
             switch (framelist[0].trackedObject[i].team)
             {
                  
@@ -43,18 +44,16 @@ public class GameScript : DataReader
                 default:
                     print("unacounted team" + framelist[0].trackedObject[i].team);
                     break;
-            }
-           
-            
+            }           
         }
 
         
          for (int i = 0; i < _players.Count; i++)
          {
+            //set text for players
             TextMeshPro text = _players[framelist[counter].trackedObject[i].trackingID].transform.GetChild(0).GetComponent<TextMeshPro>();
              text.text = "team" + framelist[0].trackedObject[i].team + "   " +"no." + framelist[0].trackedObject[i].playerNumber;
-         }
-         
+         }        
         counter = 0;
     }
    
@@ -62,12 +61,11 @@ public class GameScript : DataReader
     {
         if (counter< framelist.Count)
         {
+            //sets posistion for the frame
             ball.transform.position = framelist[counter].ballData.posistion;
             for (int j = 0; j < _players.Count; j++)
-            {
-                
-                _players[framelist[counter].trackedObject[j].trackingID].transform.position = framelist[counter].trackedObject[j].pos;
-                
+            {             
+                _players[framelist[counter].trackedObject[j].trackingID].transform.position = framelist[counter].trackedObject[j].pos;             
             }
             
             counter++;
@@ -76,6 +74,5 @@ public class GameScript : DataReader
         {
             print(counter);
         }
-
     }
 }
